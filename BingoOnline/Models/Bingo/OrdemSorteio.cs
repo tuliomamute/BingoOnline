@@ -28,6 +28,6 @@ namespace BingoOnline.Models
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
         public Status Status { get; set; } 
-        public ICollection<OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
+        public ICollection<Sorteio> Sorteio { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace BingoOnline.Controllers
 
         public ActionResult Winners(int id, int bingoid)
         {
-            var resultado = db.OrdemSorteioCartelas.Include(o => o.OrdemSorteio).Include(o => o.Usuario).Include(o => o.OrdemSorteio.Bingo);
+            var resultado = db.Sorteio.Include(o => o.OrdemSorteio).Include(o => o.Usuario).Include(o => o.OrdemSorteio.Bingo);
             var resultadofinal = resultado.Where(x => x.QuantidadeAcertos == 15 && x.OrdemSorteioId == id).ToList();
 
             if (resultadofinal.Count() == 0)
@@ -47,16 +47,16 @@ namespace BingoOnline.Controllers
             int cartela = 0;
             var sorteiosbingo = db.OrdemSorteio.Where(x => x.BingoId == BingoId).ToList();
             var cartelas = db.Cartela.Where(x => x.BingoId == BingoId).OrderBy(x => x.CartelaId).ToList();
-            var sorteios = db.OrdemSorteioCartelas.Where(x => x.OrdemSorteio.BingoId == BingoId).OrderByDescending(x => x.CartelaId).FirstOrDefault();
+            var sorteios = db.Sorteio.Where(x => x.OrdemSorteio.BingoId == BingoId).OrderByDescending(x => x.CartelaId).FirstOrDefault();
 
             var UserGuid = User.Identity.GetUserId();
 
             foreach (var item in sorteiosbingo)
             {
-                if (db.OrdemSorteioCartelas.Where(x => x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() == 100)
+                if (db.Sorteio.Where(x => x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() == 100)
                     continue;
 
-                if (db.OrdemSorteioCartelas.Where(x => x.UserId == UserGuid && x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() > 0)
+                if (db.Sorteio.Where(x => x.UserId == UserGuid && x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() > 0)
                     continue;
 
                 if (sorteios != null)
@@ -64,14 +64,14 @@ namespace BingoOnline.Controllers
                 else
                     cartela = cartelas.FirstOrDefault().CartelaId;
 
-                OrdemSorteioCartelas associacaousuarios = new OrdemSorteioCartelas();
+                Sorteio associacaousuarios = new Sorteio();
 
                 associacaousuarios.OrdemSorteioId = item.OrdemSorteioBingoId;
                 associacaousuarios.QuantidadeAcertos = 0;
                 associacaousuarios.UserId = UserGuid;
                 associacaousuarios.CartelaId = cartela;
 
-                db.OrdemSorteioCartelas.Add(associacaousuarios);
+                db.Sorteio.Add(associacaousuarios);
             }
 
             db.SaveChanges();
