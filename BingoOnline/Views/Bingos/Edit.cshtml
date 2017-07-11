@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Bingo</h4>
         <hr />
@@ -44,7 +44,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataCancelamento, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataCancelamento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DataCancelamento, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.DataCancelamento, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,7 +52,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataCriacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataCriacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DataCriacao, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.DataCriacao, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataRealizacao, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DataRealizacao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.DataRealizacao, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.DataRealizacao, "", new { @class = "text-danger" })
             </div>
         </div>

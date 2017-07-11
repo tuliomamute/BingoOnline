@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201707112233226_AddingStatsToLottery.Designer.cs">
       <DependentUpon>201707112233226_AddingStatsToLottery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707112250586_ChangeDateTypes.cs" />
+    <Compile Include="Migrations\201707112250586_ChangeDateTypes.Designer.cs">
+      <DependentUpon>201707112250586_ChangeDateTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bingo\OrdemSorteioCartelas.cs" />
     <Compile Include="Models\ControleUsuario\AccountViewModels.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707112233226_AddingStatsToLottery.resx">
       <DependentUpon>201707112233226_AddingStatsToLottery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707112250586_ChangeDateTypes.resx">
+      <DependentUpon>201707112250586_ChangeDateTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

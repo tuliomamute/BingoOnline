@@ -36,10 +36,12 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataCriacao)
+                @{string DataCriacao = item.DataCriacao.ToString("dd/MM/yyyy");}
+                @Html.DisplayFor(modelItem => DataCriacao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataRealizacao)
+                @{string DataRealizacao = item.DataRealizacao.ToString("dd/MM/yyyy");}
+                @Html.DisplayFor(modelItem => DataRealizacao)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.BingoId }) |
@@ -49,6 +51,6 @@
                 @Html.ActionLink("Gerar Cartelas", "Generate", "Cartelas", new { id = item.BingoId }, null)
             </td>
         </tr>
-    }
+                    }
 
 </table>
