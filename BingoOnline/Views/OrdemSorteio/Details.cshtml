@@ -1,0 +1,42 @@
+﻿@model BingoOnline.Models.OrdemSorteio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrdemSorteioBingo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bingo.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bingo.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Premio.NomePremio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Premio.NomePremio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdemSorteioBingoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

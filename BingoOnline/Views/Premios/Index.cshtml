@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BingoOnline.Models.Premio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomePremio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPremio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomePremio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorPremio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PremioId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PremioId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PremioId })
+        </td>
+    </tr>
+}
+
+</table>

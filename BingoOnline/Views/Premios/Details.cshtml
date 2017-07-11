@@ -1,0 +1,34 @@
+﻿@model BingoOnline.Models.Premio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Premio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomePremio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomePremio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorPremio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorPremio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PremioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
