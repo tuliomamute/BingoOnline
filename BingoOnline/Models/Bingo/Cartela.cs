@@ -6,8 +6,10 @@ using System.Web;
 
 namespace BingoOnline.Models
 {
+    /// <summary>
+    /// Tabela que armazena as cartelas geradas para um determinado bingo
+    /// </summary>
     [Table("Cartela")]
-
     public class Cartela
     {
         public int CartelaId { get; set; }

@@ -7,6 +7,9 @@ using System.Web;
 
 namespace BingoOnline.Models
 {
+    /// <summary>
+    /// Tabela do Evento Bingo
+    /// </summary>
     [Table("Bingo")]
     public class Bingo
     {

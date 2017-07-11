@@ -8,6 +8,9 @@ using System.Web;
 
 namespace BingoOnline.Models
 {
+    /// <summary>
+    /// Tabela que armazena os Prêmios
+    /// </summary>
     [Table("Premio")]
     public class Premio
     {

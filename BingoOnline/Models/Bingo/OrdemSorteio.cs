@@ -8,6 +8,9 @@ using System.Web;
 
 namespace BingoOnline.Models
 {
+    /// <summary>
+    /// Tabela que armazena o que será sorteado por evento
+    /// </summary>
     [Table("OrdemSorteio")]
     public class OrdemSorteio
     {

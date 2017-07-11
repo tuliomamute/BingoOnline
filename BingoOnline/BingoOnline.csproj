@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201707111537054_InitialCreate.Designer.cs">
       <DependentUpon>201707111537054_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707111729306_LinkingUserToCards.cs" />
+    <Compile Include="Migrations\201707111729306_LinkingUserToCards.Designer.cs">
+      <DependentUpon>201707111729306_LinkingUserToCards.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bingo\OrdemSorteioCartelas.cs" />
     <Compile Include="Models\ControleUsuario\AccountViewModels.cs" />
@@ -314,6 +318,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201707111537054_InitialCreate.resx">
       <DependentUpon>201707111537054_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707111729306_LinkingUserToCards.resx">
+      <DependentUpon>201707111729306_LinkingUserToCards.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
