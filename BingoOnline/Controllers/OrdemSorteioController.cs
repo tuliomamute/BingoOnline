@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BingoOnline.Models;
+using BingoOnline.Utility;
 
 namespace BingoOnline.Controllers
 {
@@ -36,6 +37,15 @@ namespace BingoOnline.Controllers
                 return HttpNotFound();
             }
             return View(ordemSorteioBingo);
+        }
+
+        public ActionResult Draw(int? id)
+        {
+            MakeBingo bingo = new MakeBingo(db);
+
+            bingo.GetResultFromBingo();
+
+            return RedirectToAction("Winners", "OrdemSorteioCartelas");
         }
 
         #region Create

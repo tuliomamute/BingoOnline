@@ -1,7 +1,33 @@
-﻿
+﻿@model IEnumerable<BingoOnline.Models.OrdemSorteioCartelas>
+
 @{
-    ViewBag.Title = "Winners";
+    ViewBag.Title = "Vencedores";
 }
 
 <h2>Winners</h2>
+<h4>Bingo: @ViewBag.Bingo</h4>
+<h4>Premio: @ViewBag.Premio</h4>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Usuario.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantidadeAcertos)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeAcertos)
+            </td>
+        </tr>
+    }
+
+</table>

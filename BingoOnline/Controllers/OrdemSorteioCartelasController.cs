@@ -17,7 +17,11 @@ namespace BingoOnline.Controllers
         public ActionResult Winners(int id)
         {
             var resultado = db.OrdemSorteioCartelas.Include(o => o.OrdemSorteio).Include(o => o.Usuario).Include(o => o.OrdemSorteio.Bingo);
-            var resultadofinal = resultado.Where(x => x.QuantidadeAcertos == 15);
+            var resultadofinal = resultado.Where(x => x.QuantidadeAcertos == 15).ToList();
+
+            ViewBag.Premio = resultadofinal.ElementAt(0).OrdemSorteio.Descricao;
+            ViewBag.Bingo = resultadofinal.ElementAt(0).OrdemSorteio.Bingo.Descricao;
+
             return View(resultadofinal);
         }
     }
