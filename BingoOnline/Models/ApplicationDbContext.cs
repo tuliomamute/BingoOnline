@@ -25,6 +25,7 @@ namespace BingoOnline.Models
         public System.Data.Entity.DbSet<Premio> Premio { get; set; }
 
         public System.Data.Entity.DbSet<BingoOnline.Models.OrdemSorteio> OrdemSorteio{ get; set; }
+        public System.Data.Entity.DbSet<BingoOnline.Models.OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

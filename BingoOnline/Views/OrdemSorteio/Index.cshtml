@@ -38,7 +38,11 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.OrdemSorteioBingoId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.OrdemSorteioBingoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId }) |
+                @Html.ActionLink("Realizar Sorteio", "Draw", new { id = item.OrdemSorteioBingoId })) |
+                @Html.ActionLink("Vencedores", "Winners", "OrdemSorteioCartelas", new { id = item.OrdemSorteioBingoId }, null))
+
+
             </td>
         </tr>
     }
