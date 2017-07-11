@@ -36,13 +36,21 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.OrdemSorteioBingoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.OrdemSorteioBingoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId }) |
-                @Html.ActionLink("Realizar Sorteio", "Draw", new { id = item.OrdemSorteioBingoId }) |
+                @if (User.IsInRole("Administrador") || User.IsInRole("Administrator"))
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrdemSorteioBingoId })
+                    <label>|</label>
+                    @Html.ActionLink("Details", "Details", new { id = item.OrdemSorteioBingoId })
+                    <label>|</label>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId })
+                    <label>|</label>
+                    @Html.ActionLink("Realizar Sorteio", "Draw", new { id = item.OrdemSorteioBingoId })
+                    <label>|</label>
+                }
+
                 @Html.ActionLink("Vencedores", "Winners", "OrdemSorteioCartelas", new { id = item.OrdemSorteioBingoId, bingoid = item.BingoId }, null)
             </td>
         </tr>
-    }
+                }
 
 </table>

@@ -298,6 +298,7 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\OrdemSorteioCartelas\Winners.cshtml" />
+    <Content Include="Views\OrdemSorteioCartelas\Associate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

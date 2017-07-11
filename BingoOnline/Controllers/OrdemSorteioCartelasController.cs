@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BingoOnline.Models;
+using Microsoft.AspNet.Identity;
 
 namespace BingoOnline.Controllers
 {
@@ -34,6 +35,42 @@ namespace BingoOnline.Controllers
 
             return View(resultadofinal);
 
+        }
+
+        public ActionResult Associate()
+        {
+            return View(db.Bingo.ToList());
+        }
+
+        public ActionResult Participate(int BingoId)
+        {
+            int cartela = 0;
+            var sorteiosbingo = db.OrdemSorteio.Where(x => x.BingoId == BingoId).ToList();
+            var cartelas = db.Cartela.Where(x => x.BingoId == BingoId).OrderBy(x => x.CartelaId).ToList();
+            var sorteios = db.OrdemSorteioCartelas.Where(x => x.OrdemSorteio.BingoId == BingoId).OrderByDescending(x => x.CartelaId).FirstOrDefault();
+
+            foreach (var item in sorteiosbingo)
+            {
+                if (db.OrdemSorteioCartelas.Where(x => x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() == 100)
+                    continue;
+
+                if (sorteios != null)
+                    cartela = sorteios.CartelaId + 1;
+                else
+                    cartela = cartelas.FirstOrDefault().CartelaId;
+
+                OrdemSorteioCartelas associacaousuarios = new OrdemSorteioCartelas();
+
+                associacaousuarios.OrdemSorteioId = item.OrdemSorteioBingoId;
+                associacaousuarios.QuantidadeAcertos = 0;
+                associacaousuarios.UserId = User.Identity.GetUserId();
+                associacaousuarios.CartelaId = cartela;
+
+                db.OrdemSorteioCartelas.Add(associacaousuarios);
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("Associate", new { BingoId = BingoId });
         }
     }
 }
