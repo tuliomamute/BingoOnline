@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,12 +13,15 @@ namespace BingoOnline.Models
     {
         [Key]
         public int OrdemSorteioBingoId { get; set; }
-        [ForeignKey("BingoId")]
+        [ForeignKey("BingoId"), DisplayName("Bingo")]
         public virtual Bingo Bingo { get; set; }
+        [DisplayName("Bingo")]
         public int BingoId { get; set; }
-        [ForeignKey("PremioId")]
+        [ForeignKey("PremioId"), DisplayName("Prêmio")]
         public virtual Premio Premio { get; set; }
+        [DisplayName("Prêmio")]
         public int PremioId { get; set; }
+        [DisplayName("Descrição")]
         public string Descricao { get; set; }
         public ICollection<OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
     }

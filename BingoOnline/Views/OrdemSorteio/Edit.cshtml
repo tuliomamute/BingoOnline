@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>OrdemSorteioBingo</h4>
         <hr />
@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.OrdemSorteioBingoId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BingoId, "BingoId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BingoId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BingoId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BingoId, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PremioId, "PremioId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PremioId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("PremioId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PremioId, "", new { @class = "text-danger" })

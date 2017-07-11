@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f73d4139f46f4538abb18db4f4cb895b" Name="Diagram1">
+        <EntityTypeShape EntityType="BingoOnlineModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.AspNetRoles" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.AspNetUserClaims" Width="1.5" PointX="7.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.AspNetUserLogins" Width="1.5" PointX="7.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.AspNetUsers" Width="1.5" PointX="5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.Bingo" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.Cartela" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.OrdemSorteio" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.OrdemSorteioCartelas" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BingoOnlineModel.Premio" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_Cartela_dbo_Bingo_BingoId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_OrdemSorteio_dbo_Bingo_BingoId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_OrdemSorteioCartelas_dbo_Cartela_CartelaId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_OrdemSorteio_dbo_Premio_PremioId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.FK_dbo_OrdemSorteioCartelas_dbo_OrdemSorteio_OrdemSorteioId" ManuallyRouted="false" />
+        <AssociationConnector Association="BingoOnlineModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
