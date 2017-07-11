@@ -14,15 +14,26 @@ namespace BingoOnline.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Winners(int id)
+        public ActionResult Winners(int id, int bingoid)
         {
             var resultado = db.OrdemSorteioCartelas.Include(o => o.OrdemSorteio).Include(o => o.Usuario).Include(o => o.OrdemSorteio.Bingo);
-            var resultadofinal = resultado.Where(x => x.QuantidadeAcertos == 15).ToList();
+            var resultadofinal = resultado.Where(x => x.QuantidadeAcertos == 15 && x.OrdemSorteioId == id).ToList();
 
-            ViewBag.Premio = resultadofinal.ElementAt(0).OrdemSorteio.Descricao;
-            ViewBag.Bingo = resultadofinal.ElementAt(0).OrdemSorteio.Bingo.Descricao;
+            if (resultadofinal.Count() == 0)
+            {
+                ViewBag.Premio = db.OrdemSorteio.Where(x => x.OrdemSorteioBingoId == id).FirstOrDefault().Descricao;
+                ViewBag.Bingo = db.Bingo.Where(x => x.BingoId == bingoid).FirstOrDefault().Descricao;
+                ViewBag.BingoId = bingoid;
+            }
+            else
+            {
+                ViewBag.Premio = resultadofinal.ElementAt(0).OrdemSorteio.Descricao;
+                ViewBag.Bingo = resultadofinal.ElementAt(0).OrdemSorteio.Bingo.Descricao;
+                ViewBag.BingoId = bingoid;
+            }
 
             return View(resultadofinal);
+
         }
     }
 }

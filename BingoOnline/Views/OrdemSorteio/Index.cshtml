@@ -40,7 +40,7 @@
                 @Html.ActionLink("Details", "Details", new { id = item.OrdemSorteioBingoId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId }) |
                 @Html.ActionLink("Realizar Sorteio", "Draw", new { id = item.OrdemSorteioBingoId }) |
-                @Html.ActionLink("Vencedores", "Winners", "OrdemSorteioCartelas", new { id = item.OrdemSorteioBingoId }, null)
+                @Html.ActionLink("Vencedores", "Winners", "OrdemSorteioCartelas", new { id = item.OrdemSorteioBingoId, bingoid = item.BingoId }, null)
             </td>
         </tr>
     }
