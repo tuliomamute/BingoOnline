@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace BingoOnline.Models
 {
@@ -23,5 +25,12 @@ namespace BingoOnline.Models
         public System.Data.Entity.DbSet<Premio> Premio { get; set; }
 
         public System.Data.Entity.DbSet<BingoOnline.Models.OrdemSorteio> OrdemSorteio{ get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

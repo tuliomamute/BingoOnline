@@ -24,7 +24,7 @@ namespace BingoOnline.Models
         public DateTime DataCriacao { get; set; }
         [DisplayName("Data Realização")]
         public DateTime DataRealizacao { get; set; }
-        public virtual ICollection<OrdemSorteio> OrdemSorteioBingo { get; set; }
+        public virtual ICollection<OrdemSorteio> OrdemSorteio { get; set; }
         public virtual ICollection<Cartela> Cartela { get; set; }
 
     }

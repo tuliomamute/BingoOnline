@@ -198,27 +198,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201707110329300_InitialCreate.cs" />
-    <Compile Include="Migrations\201707110329300_InitialCreate.Designer.cs">
-      <DependentUpon>201707110329300_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110352565_ChangeTypeDataCancelamento.cs" />
-    <Compile Include="Migrations\201707110352565_ChangeTypeDataCancelamento.Designer.cs">
-      <DependentUpon>201707110352565_ChangeTypeDataCancelamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707110430547_ChangeTableNameOrdemSorteio.cs" />
-    <Compile Include="Migrations\201707110430547_ChangeTableNameOrdemSorteio.Designer.cs">
-      <DependentUpon>201707110430547_ChangeTableNameOrdemSorteio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707111418471_CreateForeignKeyWithBingo.cs" />
-    <Compile Include="Migrations\201707111418471_CreateForeignKeyWithBingo.Designer.cs">
-      <DependentUpon>201707111418471_CreateForeignKeyWithBingo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707111422061_CreateForeignKeyWithBingo1.cs" />
-    <Compile Include="Migrations\201707111422061_CreateForeignKeyWithBingo1.Designer.cs">
-      <DependentUpon>201707111422061_CreateForeignKeyWithBingo1.cs</DependentUpon>
+    <Compile Include="Migrations\201707111537054_InitialCreate.cs" />
+    <Compile Include="Migrations\201707111537054_InitialCreate.Designer.cs">
+      <DependentUpon>201707111537054_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Bingo\OrdemSorteioCartelas.cs" />
     <Compile Include="Models\ControleUsuario\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Bingo\Bingo.cs" />
@@ -323,20 +308,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707110329300_InitialCreate.resx">
-      <DependentUpon>201707110329300_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110352565_ChangeTypeDataCancelamento.resx">
-      <DependentUpon>201707110352565_ChangeTypeDataCancelamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707110430547_ChangeTableNameOrdemSorteio.resx">
-      <DependentUpon>201707110430547_ChangeTableNameOrdemSorteio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707111418471_CreateForeignKeyWithBingo.resx">
-      <DependentUpon>201707111418471_CreateForeignKeyWithBingo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707111422061_CreateForeignKeyWithBingo1.resx">
-      <DependentUpon>201707111422061_CreateForeignKeyWithBingo1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707111537054_InitialCreate.resx">
+      <DependentUpon>201707111537054_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

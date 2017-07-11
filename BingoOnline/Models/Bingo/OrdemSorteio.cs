@@ -19,5 +19,6 @@ namespace BingoOnline.Models
         public virtual Premio Premio { get; set; }
         public int PremioId { get; set; }
         public string Descricao { get; set; }
+        public ICollection<OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
     }
 }

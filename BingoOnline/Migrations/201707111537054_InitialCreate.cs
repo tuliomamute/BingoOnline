@@ -15,14 +15,41 @@ namespace BingoOnline.Migrations
                         Descricao = c.String(),
                         Status = c.Int(nullable: false),
                         MotivoCancelamento = c.String(),
-                        DataCancelamento = c.DateTime(nullable: false),
+                        DataCancelamento = c.DateTime(),
                         DataCriacao = c.DateTime(nullable: false),
                         DataRealizacao = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.BingoId);
             
             CreateTable(
-                "dbo.OrdemSorteioBingo",
+                "dbo.Cartela",
+                c => new
+                    {
+                        CartelaId = c.Int(nullable: false, identity: true),
+                        NumerosCartela = c.String(),
+                        BingoId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CartelaId)
+                .ForeignKey("dbo.Bingo", t => t.BingoId)
+                .Index(t => t.BingoId);
+            
+            CreateTable(
+                "dbo.OrdemSorteioCartelas",
+                c => new
+                    {
+                        OrdemSorteioCartelasId = c.Int(nullable: false, identity: true),
+                        CartelaId = c.Int(nullable: false),
+                        OrdemSorteioId = c.Int(nullable: false),
+                        QuantidadeAcertos = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.OrdemSorteioCartelasId)
+                .ForeignKey("dbo.Cartela", t => t.CartelaId)
+                .ForeignKey("dbo.OrdemSorteio", t => t.OrdemSorteioId)
+                .Index(t => t.CartelaId)
+                .Index(t => t.OrdemSorteioId);
+            
+            CreateTable(
+                "dbo.OrdemSorteio",
                 c => new
                     {
                         OrdemSorteioBingoId = c.Int(nullable: false, identity: true),
@@ -31,8 +58,8 @@ namespace BingoOnline.Migrations
                         Descricao = c.String(),
                     })
                 .PrimaryKey(t => t.OrdemSorteioBingoId)
-                .ForeignKey("dbo.Bingo", t => t.BingoId, cascadeDelete: true)
-                .ForeignKey("dbo.Premio", t => t.PremioId, cascadeDelete: true)
+                .ForeignKey("dbo.Bingo", t => t.BingoId)
+                .ForeignKey("dbo.Premio", t => t.PremioId)
                 .Index(t => t.BingoId)
                 .Index(t => t.PremioId);
             
@@ -45,15 +72,6 @@ namespace BingoOnline.Migrations
                         ValorPremio = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.PremioId);
-            
-            CreateTable(
-                "dbo.Cartela",
-                c => new
-                    {
-                        CartelaId = c.Int(nullable: false, identity: true),
-                        NumerosCartela = c.String(),
-                    })
-                .PrimaryKey(t => t.CartelaId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -73,8 +91,8 @@ namespace BingoOnline.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -108,7 +126,7 @@ namespace BingoOnline.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -120,7 +138,7 @@ namespace BingoOnline.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
         }
@@ -131,24 +149,31 @@ namespace BingoOnline.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.OrdemSorteioBingo", "PremioId", "dbo.Premio");
-            DropForeignKey("dbo.OrdemSorteioBingo", "BingoId", "dbo.Bingo");
+            DropForeignKey("dbo.OrdemSorteio", "PremioId", "dbo.Premio");
+            DropForeignKey("dbo.OrdemSorteioCartelas", "OrdemSorteioId", "dbo.OrdemSorteio");
+            DropForeignKey("dbo.OrdemSorteio", "BingoId", "dbo.Bingo");
+            DropForeignKey("dbo.OrdemSorteioCartelas", "CartelaId", "dbo.Cartela");
+            DropForeignKey("dbo.Cartela", "BingoId", "dbo.Bingo");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.OrdemSorteioBingo", new[] { "PremioId" });
-            DropIndex("dbo.OrdemSorteioBingo", new[] { "BingoId" });
+            DropIndex("dbo.OrdemSorteio", new[] { "PremioId" });
+            DropIndex("dbo.OrdemSorteio", new[] { "BingoId" });
+            DropIndex("dbo.OrdemSorteioCartelas", new[] { "OrdemSorteioId" });
+            DropIndex("dbo.OrdemSorteioCartelas", new[] { "CartelaId" });
+            DropIndex("dbo.Cartela", new[] { "BingoId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Cartela");
             DropTable("dbo.Premio");
-            DropTable("dbo.OrdemSorteioBingo");
+            DropTable("dbo.OrdemSorteio");
+            DropTable("dbo.OrdemSorteioCartelas");
+            DropTable("dbo.Cartela");
             DropTable("dbo.Bingo");
         }
     }

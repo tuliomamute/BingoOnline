@@ -15,5 +15,7 @@ namespace BingoOnline.Models
         [ForeignKey("BingoId")]
         public virtual Bingo Bingo { get; set; }
         public int BingoId { get; set; }
+        public ICollection<OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
+
     }
 }
