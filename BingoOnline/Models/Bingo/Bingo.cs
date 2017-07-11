@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using static BingoOnline.Utility.StatusEnum;
 
 namespace BingoOnline.Models
 {
@@ -18,7 +19,7 @@ namespace BingoOnline.Models
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
         [DisplayName("Status")]
-        public StatusBingo Status { get; set; }
+        public Status Status { get; set; }
         [DisplayName("Motivo Cancelamento")]
         public string MotivoCancelamento { get; set; }
         [DisplayName("Data Cancelamento")]
@@ -32,10 +33,4 @@ namespace BingoOnline.Models
 
     }
 
-    public enum StatusBingo
-    {
-        Cancelado = 3,
-        Ativo = 1,
-        Realizado = 2
-    }
 }

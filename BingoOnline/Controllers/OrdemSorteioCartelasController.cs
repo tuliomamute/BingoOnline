@@ -49,9 +49,14 @@ namespace BingoOnline.Controllers
             var cartelas = db.Cartela.Where(x => x.BingoId == BingoId).OrderBy(x => x.CartelaId).ToList();
             var sorteios = db.OrdemSorteioCartelas.Where(x => x.OrdemSorteio.BingoId == BingoId).OrderByDescending(x => x.CartelaId).FirstOrDefault();
 
+            var UserGuid = User.Identity.GetUserId();
+
             foreach (var item in sorteiosbingo)
             {
                 if (db.OrdemSorteioCartelas.Where(x => x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() == 100)
+                    continue;
+
+                if (db.OrdemSorteioCartelas.Where(x => x.UserId == UserGuid && x.OrdemSorteioId == item.OrdemSorteioBingoId).Count() > 0)
                     continue;
 
                 if (sorteios != null)
@@ -63,7 +68,7 @@ namespace BingoOnline.Controllers
 
                 associacaousuarios.OrdemSorteioId = item.OrdemSorteioBingoId;
                 associacaousuarios.QuantidadeAcertos = 0;
-                associacaousuarios.UserId = User.Identity.GetUserId();
+                associacaousuarios.UserId = UserGuid;
                 associacaousuarios.CartelaId = cartela;
 
                 db.OrdemSorteioCartelas.Add(associacaousuarios);

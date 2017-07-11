@@ -43,9 +43,9 @@ namespace BingoOnline.Controllers
         {
             MakeBingo bingo = new MakeBingo(db);
 
-            bingo.GetResultFromBingo();
+            bingo.GetResultFromBingo(id);
 
-            return RedirectToAction("Winners", "OrdemSorteioCartelas");
+            return RedirectToAction("Index", "Bingos");
         }
 
         #region Create

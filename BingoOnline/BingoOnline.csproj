@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BingosController.cs" />
     <Compile Include="Controllers\CartelasController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdemSorteioCartelasController.cs" />
     <Compile Include="Controllers\OrdemSorteioController.cs" />
@@ -208,6 +209,10 @@
     <Compile Include="Migrations\201707111729306_LinkingUserToCards.cs" />
     <Compile Include="Migrations\201707111729306_LinkingUserToCards.Designer.cs">
       <DependentUpon>201707111729306_LinkingUserToCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707112233226_AddingStatsToLottery.cs" />
+    <Compile Include="Migrations\201707112233226_AddingStatsToLottery.Designer.cs">
+      <DependentUpon>201707112233226_AddingStatsToLottery.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bingo\OrdemSorteioCartelas.cs" />
@@ -225,6 +230,7 @@
     <Compile Include="Utility\GenerateCards.cs" />
     <Compile Include="Utility\MakeBingo.cs" />
     <Compile Include="Utility\MultiSetComparer.cs" />
+    <Compile Include="Utility\StatusEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -299,6 +305,7 @@
     <Content Include="Views\Role\Create.cshtml" />
     <Content Include="Views\OrdemSorteioCartelas\Winners.cshtml" />
     <Content Include="Views\OrdemSorteioCartelas\Associate.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -325,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707111729306_LinkingUserToCards.resx">
       <DependentUpon>201707111729306_LinkingUserToCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707112233226_AddingStatsToLottery.resx">
+      <DependentUpon>201707112233226_AddingStatsToLottery.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

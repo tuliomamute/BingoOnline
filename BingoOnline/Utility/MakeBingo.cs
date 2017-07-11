@@ -5,7 +5,6 @@ using System.Web;
 using BingoOnline.Models;
 using System.Data;
 using System.Data.Entity;
-using System.Linq;
 using Newtonsoft.Json;
 
 namespace BingoOnline.Utility
@@ -20,7 +19,7 @@ namespace BingoOnline.Utility
             this.UsedNumbers = new List<int>();
         }
 
-        public void GetResultFromBingo()
+        public void GetResultFromBingo(int? SorteioId)
         {
             int number = 0;
             while (db.OrdemSorteioCartelas.Where(x => x.QuantidadeAcertos == 15).Count() == 0)
@@ -29,12 +28,17 @@ namespace BingoOnline.Utility
                 var cartelas = db.OrdemSorteioCartelas.Include(o => o.Cartela).Where(o => !string.IsNullOrEmpty(o.UserId)).ToList();
 
                 //Deserializando o array de numeros, para validar se o numero sorteado está dentro dele
-                foreach (var item in cartelas.Where(x => JsonConvert.DeserializeObject<List<int>>(x.Cartela.NumerosCartela).Where(o => o == number).Count() > 0))
+                foreach (var item in cartelas.Where(o => o.OrdemSorteioId == SorteioId).Where(x => JsonConvert.DeserializeObject<List<int>>(x.Cartela.NumerosCartela).Where(o => o == number).Count() > 0))
                 {
                     //Somando na quantidade de acertos das cartelas
                     item.QuantidadeAcertos = item.QuantidadeAcertos + 1;
                     db.Entry(item).State = EntityState.Modified;
                 }
+
+                var Sorteio = db.OrdemSorteio.Find(SorteioId);
+
+                Sorteio.Status = StatusEnum.Status.Realizado;
+                db.Entry(Sorteio).State = EntityState.Modified;
 
                 db.SaveChanges();
             }

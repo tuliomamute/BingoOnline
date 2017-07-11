@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using static BingoOnline.Utility.StatusEnum;
 
 namespace BingoOnline.Models
 {
@@ -26,6 +27,7 @@ namespace BingoOnline.Models
         public int PremioId { get; set; }
         [DisplayName("Descrição")]
         public string Descricao { get; set; }
+        public Status Status { get; set; } 
         public ICollection<OrdemSorteioCartelas> OrdemSorteioCartelas { get; set; }
     }
 }

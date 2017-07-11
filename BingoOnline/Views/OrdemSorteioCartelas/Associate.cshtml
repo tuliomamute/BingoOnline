@@ -6,9 +6,6 @@
 
 <h2>ChoosingBingo</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -37,7 +34,7 @@
             </td>
             <td>
                 @Html.ActionLink("Participar", "Participate", "OrdemSorteioCartelas", new { BingoId = item.BingoId }, null) |
-                @Html.ActionLink("Sorteios", "Index", "OrdemSorteio", new { id = item.BingoId }, null) |
+                @Html.ActionLink("Sorteios", "Index", "OrdemSorteio", new { id = item.BingoId }, null) 
 
             </td>
         </tr>

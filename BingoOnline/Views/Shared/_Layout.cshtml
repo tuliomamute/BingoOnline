@@ -26,7 +26,11 @@
                         <li>@Html.ActionLink("Premios", "Index", "Premios")</li>
                         <li>@Html.ActionLink("Bingos", "Index", "Bingos")</li>
                     }
-                    <li>@Html.ActionLink("Participar", "Associate", "OrdemSorteioCartelas")</li>
+                    @if (User.IsInRole("Administrador") || User.IsInRole("Administrator") || User.IsInRole("Jogador"))
+                    {
+                        <li>@Html.ActionLink("Participar", "Associate", "OrdemSorteioCartelas")</li>
+                    }
+
                     <li>@Html.ActionLink("Perfis", "Index", "Role")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
