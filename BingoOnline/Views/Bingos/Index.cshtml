@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Bingo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Novo Bingo", "Create")
 </p>
 <table class="table">
     <tr>
@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => DataRealizacao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.BingoId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.BingoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BingoId }) |
+                @Html.ActionLink("Editar", "Edit", new { id = item.BingoId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.BingoId }) |
+                @Html.ActionLink("Excluir", "Delete", new { id = item.BingoId }) |
                 @Html.ActionLink("Sorteios", "Index", "OrdemSorteio", new { id = item.BingoId }, null) |
                 @Html.ActionLink("Gerar Cartelas", "Generate", "Cartelas", new { id = item.BingoId }, null)
             </td>

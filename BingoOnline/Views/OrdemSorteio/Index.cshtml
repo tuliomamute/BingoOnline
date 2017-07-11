@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Lista de Sorteios do Bingo</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { BingoId = ViewBag.BingoId })
+    @Html.ActionLink("Novo Sorteio do Bingo", "Create", new { BingoId = ViewBag.BingoId })
 </p>
 <table class="table">
     <tr>
@@ -38,11 +38,11 @@
             <td>
                 @if (User.IsInRole("Administrador") || User.IsInRole("Administrator"))
                 {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.OrdemSorteioBingoId })
+                    @Html.ActionLink("Editar", "Edit", new { id = item.OrdemSorteioBingoId })
                     <label>|</label>
-                    @Html.ActionLink("Details", "Details", new { id = item.OrdemSorteioBingoId })
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.OrdemSorteioBingoId })
                     <label>|</label>
-                    @Html.ActionLink("Delete", "Delete", new { id = item.OrdemSorteioBingoId })
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.OrdemSorteioBingoId })
                     <label>|</label>
                     @Html.ActionLink("Realizar Sorteio", "Draw", new { id = item.OrdemSorteioBingoId })
                     <label>|</label>
