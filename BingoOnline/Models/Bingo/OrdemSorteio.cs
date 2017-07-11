@@ -10,12 +10,12 @@ namespace BingoOnline.Models
     [Table("OrdemSorteio")]
     public class OrdemSorteio
     {
-        [Key, Column(Order = 0)]
+        [Key]
         public int OrdemSorteioBingoId { get; set; }
-        [Key, Column(Order = 1), ForeignKey("BingoId")]
+        [ForeignKey("BingoId")]
         public virtual Bingo Bingo { get; set; }
         public int BingoId { get; set; }
-        [Key, Column(Order = 2), ForeignKey("PremioId")]
+        [ForeignKey("PremioId")]
         public virtual Premio Premio { get; set; }
         public int PremioId { get; set; }
         public string Descricao { get; set; }

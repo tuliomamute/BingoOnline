@@ -12,5 +12,8 @@ namespace BingoOnline.Models
     {
         public int CartelaId { get; set; }
         public string NumerosCartela { get; set; }
+        [ForeignKey("BingoId")]
+        public virtual Bingo Bingo { get; set; }
+        public int BingoId { get; set; }
     }
 }
