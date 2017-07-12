@@ -64,7 +64,7 @@ namespace BingoOnline.Models
 
     public class RegisterViewModel
     {
-        [Display(Name = "Name")]
+        [Display(Name = "Name"), Required]
         public string Name { get; set; }
 
         [Required]

@@ -140,7 +140,7 @@ namespace BingoOnline.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.Name = new SelectList(db.Roles.ToList(), "Name", "Name");
+            ViewBag.Name = ReturnRoles();
             return View();
         }
 
@@ -172,7 +172,13 @@ namespace BingoOnline.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.Name = ReturnRoles();
             return View(model);
+        }
+
+        private SelectList ReturnRoles()
+        {
+            return new SelectList(db.Roles.ToList(), "Name", "Name");
         }
 
         //
