@@ -190,6 +190,24 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bingo.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cartela.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BingosController.cs" />
     <Compile Include="Controllers\CartelasController.cs" />
@@ -199,6 +217,24 @@
     <Compile Include="Controllers\OrdemSorteioController.cs" />
     <Compile Include="Controllers\PremiosController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrama.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrama.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Diagrama.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Diagrama.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,7 +272,16 @@
     <Compile Include="Models\ControleUsuario\ManageViewModels.cs" />
     <Compile Include="Models\Bingo\Premio.cs" />
     <Compile Include="Models\Bingo\OrdemSorteio.cs" />
+    <Compile Include="OrdemSorteio.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Premio.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorteios.cs">
+      <DependentUpon>Diagrama.tt</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Utility\GerarCartelas.cs" />
     <Compile Include="Utility\RealizarBingo.cs" />
@@ -246,6 +291,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Diagrama.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diagrama.edmx</DependentUpon>
+      <LastGenOutput>Diagrama.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Diagrama.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Diagrama.edmx</DependentUpon>
+      <LastGenOutput>Diagrama.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -254,6 +309,13 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Diagrama.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Diagrama.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Diagrama.edmx.diagram">
+      <DependentUpon>Diagrama.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -356,6 +418,9 @@
     <EmbeddedResource Include="Migrations\201707120050105_RequiredFields.resx">
       <DependentUpon>201707120050105_RequiredFields.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
