@@ -39,13 +39,15 @@ namespace BingoOnline.Utility
                     db.Entry(item).State = EntityState.Modified;
                 }
 
-                var Sorteio = db.OrdemSorteio.Find(SorteioId);
-
-                Sorteio.Status = StatusEnum.Status.Realizado;
-                db.Entry(Sorteio).State = EntityState.Modified;
-
                 db.SaveChanges();
             }
+
+            OrdemSorteio Sorteio = db.OrdemSorteio.Find(SorteioId);
+
+            Sorteio.Status = StatusEnum.Status.Realizado;
+            db.Entry(Sorteio).State = EntityState.Modified;
+
+            db.SaveChanges();
         }
 
         /// <summary>

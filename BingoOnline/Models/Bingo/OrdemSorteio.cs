@@ -17,13 +17,13 @@ namespace BingoOnline.Models
     {
         [Key]
         public int OrdemSorteioBingoId { get; set; }
-        [ForeignKey("BingoId"), DisplayName("Bingo"), Required]
+        [ForeignKey("BingoId"), DisplayName("Bingo")]
         public virtual Bingo Bingo { get; set; }
-        [DisplayName("Bingo")]
+        [DisplayName("Bingo"), Required]
         public int BingoId { get; set; }
-        [ForeignKey("PremioId"), DisplayName("Prêmio"), Required]
+        [ForeignKey("PremioId"), DisplayName("Prêmio")]
         public virtual Premio Premio { get; set; }
-        [DisplayName("Prêmio")]
+        [DisplayName("Prêmio"), Required]
         public int PremioId { get; set; }
         [DisplayName("Descrição"), Required]
         public string Descricao { get; set; }
