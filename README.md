@@ -9,6 +9,8 @@ Sistema criado para resolução do Desafio do Bingo Online
 * Participe: Permite a participação do jogador em um bingo e seus sorteios
 
 ## Uso
+* Crie 2 Perfis de Uso (Administrador e Jogador)
+* Cadastre os usuários nos perfis para validar a diferenciação nos acessos
 * Realize o Cadastramento dos Prêmios
 * Realize o Cadastramento do Bingo
 * Realize a Geração das Cartelas 
