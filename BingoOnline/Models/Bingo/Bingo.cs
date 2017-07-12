@@ -17,19 +17,19 @@ namespace BingoOnline.Models
     {
 
         public int BingoId { get; set; }
-        [DisplayName("Descrição")]
+        [DisplayName("Descrição"), Required]
         public string Descricao { get; set; }
-        [DisplayName("Status")]
+        [DisplayName("Status"), Required]
         public Status Status { get; set; }
         [DisplayName("Motivo Cancelamento")]
         public string MotivoCancelamento { get; set; }
         [DisplayName("Data Cancelamento"), Column(TypeName = "date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DataCancelamento { get; set; }
-        [DisplayName("Data Criação"), Column(TypeName = "date")]
+        [DisplayName("Data Criação"), Column(TypeName = "date"), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataCriacao { get; set; }
-        [DisplayName("Data Realização"), Column(TypeName = "date")]
+        [DisplayName("Data Realização"), Column(TypeName = "date"), Required]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DataRealizacao { get; set; }
         public virtual ICollection<OrdemSorteio> OrdemSorteio { get; set; }

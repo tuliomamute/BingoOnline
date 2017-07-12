@@ -222,6 +222,10 @@
     <Compile Include="Migrations\201707112334500_ChangeTableName.Designer.cs">
       <DependentUpon>201707112334500_ChangeTableName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707120050105_RequiredFields.cs" />
+    <Compile Include="Migrations\201707120050105_RequiredFields.Designer.cs">
+      <DependentUpon>201707120050105_RequiredFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bingo\Sorteio.cs" />
     <Compile Include="Models\ControleUsuario\AccountViewModels.cs" />
@@ -348,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707112334500_ChangeTableName.resx">
       <DependentUpon>201707112334500_ChangeTableName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707120050105_RequiredFields.resx">
+      <DependentUpon>201707120050105_RequiredFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

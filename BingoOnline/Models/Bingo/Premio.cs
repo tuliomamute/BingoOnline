@@ -15,9 +15,9 @@ namespace BingoOnline.Models
     public class Premio
     {
         public int PremioId { get; set; }
-        [DisplayName("Nome Prêmio")]
+        [DisplayName("Nome Prêmio"), Required]
         public string NomePremio { get; set; }
-        [DisplayName("Valor Prêmio"), DataType(DataType.Currency)]
+        [DisplayName("Valor Prêmio"), DataType(DataType.Currency), Required]
         public float ValorPremio { get; set; }
         public ICollection<OrdemSorteio> OrdemSorteioBingo { get; set; }
     }
