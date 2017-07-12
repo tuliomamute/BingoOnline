@@ -1,4 +1,4 @@
-# BingoOnline
+# Bingo Online
 
 Sistema criado para resolução do Desafio do Bingo Online
 
