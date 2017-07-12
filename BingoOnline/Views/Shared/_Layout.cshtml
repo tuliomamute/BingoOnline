@@ -28,7 +28,7 @@
                     }
                     @if (User.IsInRole("Administrador") || User.IsInRole("Administrator") || User.IsInRole("Jogador"))
                     {
-                        <li>@Html.ActionLink("Participar", "Associate", "OrdemSorteioCartelas")</li>
+                        <li>@Html.ActionLink("Participar", "Associate", "Sorteios")</li>
                     }
 
                     <li>@Html.ActionLink("Perfis", "Index", "Role")</li>

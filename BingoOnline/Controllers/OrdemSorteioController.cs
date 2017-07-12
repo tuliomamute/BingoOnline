@@ -15,7 +15,11 @@ namespace BingoOnline.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: OrdemSorteioBingos
+        /// <summary>
+        /// Retorna Listagem de sorteios de um determinado bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Index(int id)
         {
             ViewBag.BingoId = id;
@@ -24,7 +28,11 @@ namespace BingoOnline.Controllers
             return View(ordemSorteioBingos.Where(x => x.BingoId == id).ToList());
         }
 
-        // GET: OrdemSorteioBingos/Details/5
+        /// <summary>
+        /// Retorno de Detalhes de um sorteio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,18 +47,27 @@ namespace BingoOnline.Controllers
             return View(ordemSorteioBingo);
         }
 
+        /// <summary>
+        /// Método de realização de sorteio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Draw(int? id)
         {
-            MakeBingo bingo = new MakeBingo(db);
+            RealizarBingo bingo = new RealizarBingo(db);
 
-            bingo.GetResultFromBingo(id);
+            bingo.RealizarSorteioBingo(id);
 
             return RedirectToAction("Index", "Bingos");
         }
 
         #region Create
 
-        // GET: OrdemSorteioBingos/Create
+        /// <summary>
+        /// Exibição da tela de criação de um sorteio associado a um bingo
+        /// </summary>
+        /// <param name="BingoId"></param>
+        /// <returns></returns>
         public ActionResult Create(int BingoId)
         {
             ViewBag.BingoId = new SelectList(db.Bingo, "BingoId", "Descricao", BingoId);
@@ -58,7 +75,11 @@ namespace BingoOnline.Controllers
             return View();
         }
 
-        // POST: OrdemSorteioBingos/Create
+        /// <summary>
+        /// Criação de um sorteio associado a um bingo
+        /// </summary>
+        /// <param name="ordemSorteioBingo"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(OrdemSorteio ordemSorteioBingo)
@@ -78,7 +99,11 @@ namespace BingoOnline.Controllers
 
         #region Edit
 
-        // GET: OrdemSorteioBingos/Edit/5
+        /// <summary>
+        /// Exibição da tela de um sorteio associado a um bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,7 +120,11 @@ namespace BingoOnline.Controllers
             return View(ordemSorteioBingo);
         }
 
-        // POST: OrdemSorteioBingos/Edit/5
+        /// <summary>
+        /// Atualização de um sorteio associado a um bingo
+        /// </summary>
+        /// <param name="ordemSorteioBingo"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(OrdemSorteio ordemSorteioBingo)
@@ -114,7 +143,11 @@ namespace BingoOnline.Controllers
 
         #region Delete
 
-        // GET: OrdemSorteioBingos/Delete/5
+        /// <summary>
+        /// Exibição da tela de exclusão de sorteio associado a um bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -129,7 +162,11 @@ namespace BingoOnline.Controllers
             return View(ordemSorteioBingo);
         }
 
-        // POST: OrdemSorteioBingos/Delete/5
+        /// <summary>
+        /// Confirmação de Exclusão de um sorteio associado a um bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

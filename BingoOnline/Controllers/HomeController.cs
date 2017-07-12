@@ -8,7 +8,10 @@ namespace BingoOnline.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        /// <summary>
+        /// Exibição de Tela Inicial
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();

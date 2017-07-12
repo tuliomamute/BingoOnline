@@ -9,22 +9,26 @@ using Newtonsoft.Json;
 
 namespace BingoOnline.Utility
 {
-    public class MakeBingo
+    public class RealizarBingo
     {
         private ApplicationDbContext db;
-        private List<int> UsedNumbers { get; set; }
-        public MakeBingo(ApplicationDbContext db)
+        private List<int> NumerosUsados { get; set; }
+        public RealizarBingo(ApplicationDbContext db)
         {
             this.db = db;
-            this.UsedNumbers = new List<int>();
+            this.NumerosUsados = new List<int>();
         }
 
-        public void GetResultFromBingo(int? SorteioId)
+        /// <summary>
+        /// Método responsável por realizar o sorteio do bingo (atualizando os usuários com quantidade de acertos)
+        /// </summary>
+        /// <param name="SorteioId"></param>
+        public void RealizarSorteioBingo(int? SorteioId)
         {
             int number = 0;
             while (db.Sorteio.Where(x => x.QuantidadeAcertos == 15).Count() == 0)
             {
-                number = NewNumber();
+                number = NovoNumeroBingo();
                 var cartelas = db.Sorteio.Include(o => o.Cartela).Where(o => !string.IsNullOrEmpty(o.UserId)).ToList();
 
                 //Deserializando o array de numeros, para validar se o numero sorteado está dentro dele
@@ -44,22 +48,26 @@ namespace BingoOnline.Utility
             }
         }
 
-        private int NewNumber()
+        /// <summary>
+        /// Gerar novo número para o sorteio
+        /// </summary>
+        /// <returns></returns>
+        private int NovoNumeroBingo()
         {
             Random random = new Random();
-            bool NumberUsed = false;
+            bool NumberoJaUtilizado = false;
 
             int temp = 0;
 
-            while (!NumberUsed)
+            while (!NumberoJaUtilizado)
             {
                 temp = random.Next(1, 101);
 
-                if (UsedNumbers.Where(x => x == temp).Count() > 0)
+                if (NumerosUsados.Where(x => x == temp).Count() > 0)
                     continue;
 
-                UsedNumbers.Add(temp);
-                NumberUsed = true;
+                NumerosUsados.Add(temp);
+                NumberoJaUtilizado = true;
             }
 
             return temp;

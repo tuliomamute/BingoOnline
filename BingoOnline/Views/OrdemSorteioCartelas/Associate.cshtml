@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => item.DataRealizacao)
             </td>
             <td>
-                @Html.ActionLink("Participar", "Participate", "OrdemSorteioCartelas", new { BingoId = item.BingoId }, null) |
+                @Html.ActionLink("Participar", "Participate", "Sorteios", new { BingoId = item.BingoId }, null) |
                 @Html.ActionLink("Sorteios", "Index", "OrdemSorteio", new { id = item.BingoId }, null) 
 
             </td>

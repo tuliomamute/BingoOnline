@@ -5,6 +5,10 @@ using System.Web;
 
 namespace BingoOnline.Utility
 {
+    /// <summary>
+    /// Classe de Comparação para geração de Cartelas não repetidas
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class MultiSetComparer<T> : IEqualityComparer<List<T>>
     {
         public bool Equals(List<T> first, List<T> second)

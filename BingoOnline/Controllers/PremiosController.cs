@@ -14,13 +14,20 @@ namespace BingoOnline.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Premios
+        /// <summary>
+        /// Exibição de Lista de Prêmios
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View(db.Premio.ToList());
         }
 
-        // GET: Premios/Details/5
+        /// <summary>
+        /// Exibição de Detalhes de um Prêmio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,13 +44,20 @@ namespace BingoOnline.Controllers
 
         #region Create
 
-        // GET: Premios/Create
+        /// <summary>
+        /// Exibição da tela de criação de um Prêmio
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Premios/Create
+        /// <summary>
+        /// Criação de um Prêmio
+        /// </summary>
+        /// <param name="premio"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Premio premio)
@@ -60,7 +74,11 @@ namespace BingoOnline.Controllers
         #endregion
 
         #region Edit
-        // GET: Premios/Edit/5
+        /// <summary>
+        /// Exibição da tela de edição de um Prêmio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -75,7 +93,11 @@ namespace BingoOnline.Controllers
             return View(premio);
         }
 
-        // POST: Premios/Edit/5
+        /// <summary>
+        /// Edição de um Prêmio
+        /// </summary>
+        /// <param name="premio"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PremioId,NomePremio,ValorPremio")] Premio premio)
@@ -92,7 +114,11 @@ namespace BingoOnline.Controllers
 
         #region Delete
 
-        // GET: Premios/Delete/5
+        /// <summary>
+        /// Exibição de Tela de Exclusão de um Prêmio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,7 +133,11 @@ namespace BingoOnline.Controllers
             return View(premio);
         }
 
-        // POST: Premios/Delete/5
+        /// <summary>
+        /// Exclusão de um Prêmio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

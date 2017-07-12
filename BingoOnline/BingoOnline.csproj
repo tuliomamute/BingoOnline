@@ -195,7 +195,7 @@
     <Compile Include="Controllers\CartelasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\OrdemSorteioCartelasController.cs" />
+    <Compile Include="Controllers\SorteiosController.cs" />
     <Compile Include="Controllers\OrdemSorteioController.cs" />
     <Compile Include="Controllers\PremiosController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -234,8 +234,8 @@
     <Compile Include="Models\Bingo\OrdemSorteio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Utility\GenerateCards.cs" />
-    <Compile Include="Utility\MakeBingo.cs" />
+    <Compile Include="Utility\GerarCartelas.cs" />
+    <Compile Include="Utility\RealizarBingo.cs" />
     <Compile Include="Utility\MultiSetComparer.cs" />
     <Compile Include="Utility\StatusEnum.cs" />
   </ItemGroup>

@@ -14,13 +14,20 @@ namespace BingoOnline.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Bingos
+        /// <summary>
+        /// Retorna Lista de Bingos
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View(db.Bingo.ToList());
         }
 
-        // GET: Bingos/Details/5
+        /// <summary>
+        /// Retorna os Detalhes do Bingo Escolhido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +43,20 @@ namespace BingoOnline.Controllers
         }
 
         #region Create
-        // GET: Bingos/Create
+        /// <summary>
+        /// Retorna Tela de Criação de Bingo
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Bingos/Create
+        /// <summary>
+        /// Método responsável por criar o Bingo na base
+        /// </summary>
+        /// <param name="bingo"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BingoId,Descricao,Status,MotivoCancelamento,DataCancelamento,DataCriacao,DataRealizacao")] Bingo bingo)
@@ -59,7 +73,11 @@ namespace BingoOnline.Controllers
         #endregion
 
         #region Edit
-        // GET: Bingos/Edit/5
+        /// <summary>
+        /// Metodo que retorna Tela de Edição do Bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +92,11 @@ namespace BingoOnline.Controllers
             return View(bingo);
         }
 
-        // POST: Bingos/Edit/5
+        /// <summary>
+        /// Método que Salva o registro editado na base
+        /// </summary>
+        /// <param name="bingo"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "BingoId,Descricao,Status,MotivoCancelamento,DataCancelamento,DataCriacao,DataRealizacao")] Bingo bingo)
@@ -90,7 +112,11 @@ namespace BingoOnline.Controllers
         #endregion
 
         #region Delete
-        // GET: Bingos/Delete/5
+        /// <summary>
+        /// Método que retorna a tela de Exclusão
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +131,11 @@ namespace BingoOnline.Controllers
             return View(bingo);
         }
 
-        // POST: Bingos/Delete/5
+        /// <summary>
+        /// Método que confirma a exclusão do bingo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
