@@ -133,7 +133,7 @@ namespace BingoOnline.Controllers
             {
                 db.Entry(ordemSorteioBingo).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = ordemSorteioBingo.BingoId });
             }
             ViewBag.BingoId = new SelectList(db.Bingo, "BingoId", "Descricao", ordemSorteioBingo.BingoId);
             ViewBag.PremioId = new SelectList(db.Premio, "PremioId", "NomePremio", ordemSorteioBingo.PremioId);

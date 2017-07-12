@@ -7,7 +7,7 @@
 <h2>Detalhes do Sorteio do Bingo</h2>
 
 <div>
-    
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,7 +17,6 @@
         <dd>
             @Html.DisplayFor(model => model.Bingo.Descricao)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Premio.NomePremio)
         </dt>
@@ -33,7 +32,9 @@
         <dd>
             @Html.DisplayFor(model => model.Descricao)
         </dd>
-
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
     </dl>
 </div>
 <p>
